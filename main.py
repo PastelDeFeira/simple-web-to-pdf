@@ -22,10 +22,12 @@ def get_title(url):
 
 for url in urls:
     title = get_title(url)
-
+    
     # makes the website title appropriate for a filename
     for char in '"?.!/;:': 
         title = title.replace(char, '')
+
+    print(f'Converting {title}.pdf')
 
     #saves file
     pdfkit.from_url(url, f'{filepath}/{title}.pdf')
